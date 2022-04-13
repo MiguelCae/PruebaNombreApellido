@@ -1,0 +1,37 @@
+﻿@using PruebaNombreApellido.ViewModel
+@model CuentaViewModel
+
+<h1>Cuenta</h1>
+
+<hr />
+
+<div class="row">	
+	<div class="col-md-4">
+		<form asp-action="New">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-goup">
+				<label asp-for="Saldo" class="control-label">Saldo</label>
+				<input type="text" asp-for="Saldo" class="form-control"/>
+				<span asp-validation-for="Saldo" class="text-danger"></span>
+			</div>
+			<div class="form-goup">
+				<label asp-for="Saldo" class="control-label">Cedula Cliente</label>
+				<select asp-for="ClienteId" class="form-control" asp-items="ViewBag.Clientes"></select>
+				<span asp-validation-for="Saldo" class="text-danger"></span>
+			</div>
+			<div class="form-goup">
+				<label asp-for="Saldo" class="control-label">Cedula Cliente</label>
+				<select asp-for="ClienteId" class="form-control" asp-items="ViewBag.TipoCuenta"></select>
+				<span asp-validation-for="Saldo" class="text-danger"></span>
+			</div>
+			<div class="form-control">
+				<input type="submit" value="crear" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
